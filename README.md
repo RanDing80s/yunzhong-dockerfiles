@@ -7,10 +7,6 @@ MySQL 5.7
 Nginx 1.12
 Redis 3.2
 
-1.product_dockerfile为生产环境docker，没有开发相关依赖包
-
-2.developer_dockerfile为开发环境docker，clone完项目启动docker时会下载相关依赖包
-
 目录架构：
 
 1.app:存放application
@@ -44,3 +40,14 @@ docker-compose up
 docker-compose up -d
 
 
+开发者操作：
+到app目录里，clone商城项目
+
+docker已经安装composer包管理工具，可以运行该容器进行Composer操作。
+docker-compose run --rm -w /data/www php-fpm composer update --optimize-autoloader
+docker-compose run --rm -w /data/www php-fpm composer dump-autoload --optimize
+
+修改项目.env为：
+APP_ENV=dev
+APP_KEY=base64:gkli8hs6Q9DbSR/cQw5DNaRBF0jtvf1iGaXc6ja0ZGA=
+APP_DEBUG=true
