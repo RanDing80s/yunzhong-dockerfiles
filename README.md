@@ -50,5 +50,7 @@ docker-compose run --rm -w /data/www php-fpm composer dump-autoload --optimize
 修改项目.env为：
 
 APP_ENV=dev
+
 APP_KEY=base64:gkli8hs6Q9DbSR/cQw5DNaRBF0jtvf1iGaXc6ja0ZGA=
+
 APP_DEBUG=true
