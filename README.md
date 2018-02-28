@@ -22,6 +22,7 @@ Redis 3.2
 1.安装Docker，Docker-compose
 
 Docker，详见官方文档：https://docs.docker.com/engine/installation/linux/docker-ce/centos/
+
 docker-compose，文档：https://docs.docker.com/compose/install/
 
 2.clone相应环境的dockerfile
