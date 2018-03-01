@@ -27,6 +27,7 @@ docker-compose，文档：https://docs.docker.com/compose/install/
 
 2.clone相应环境的dockerfile
 
+    --docker-composer.yml里面定义了数据库的root密码，与建立数据库和普通用户，请自行修改后再进行启动
 
 3.下载需要的php-module
 
