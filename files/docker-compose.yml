@@ -48,7 +48,7 @@ services:
         MYSQL_USER: yz
         MYSQL_PASSWORD: fsMm2Nm1
       restart: always
-      command: "--character-set-server=utf8,--explicit_defaults_for_timestamp"
+      command: ["--character-set-server=utf8","--explicit_defaults_for_timestamp"]
 
   redis-db:
       build: ./redis

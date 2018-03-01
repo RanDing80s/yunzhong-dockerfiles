@@ -52,4 +52,4 @@ WORKDIR /data
 # Write Permission
 RUN usermod -u 8888 www-data
 
-ENTRYPOINT ["start.sh"]
+ENTRYPOINT ["/bin/bash","-c","start.sh"]
