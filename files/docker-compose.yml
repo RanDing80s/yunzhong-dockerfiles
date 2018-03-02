@@ -14,6 +14,8 @@ services:
       - ../logs/php-fpm:/var/log/php-fpm:rw
       - ./php/laravel-worker.conf:/etc/supervisor/conf.d/laravel-worker.conf:ro
       - ./php/cronjob-worker.conf:/etc/supervisor/conf.d/cronjob-worker.conf:ro
+      - ./php/crontab:/etc/crontab:ro
+      - ./php/start.sh:/usr/local/bin/start.sh
     restart: always
     #entrypoint: /usr/local/bin/start.sh
     command: /usr/local/bin/start.sh
