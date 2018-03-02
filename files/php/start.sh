@@ -1,2 +1,3 @@
 #!/bin/bash
-/usr/sbin/cron
+supervisord
+php-fpm

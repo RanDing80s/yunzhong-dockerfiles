@@ -17,6 +17,9 @@ RUN apt-get update && apt-get install -y \
 		curl \
 		libxml2-dev \
 		cron \
+		dos2unix \
+		python2.7 \
+		supervisor \
 		&& docker-php-ext-install -j$(nproc) iconv mcrypt \
 		&& docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
 		&& docker-php-ext-install -j$(nproc) gd \
@@ -35,6 +38,7 @@ COPY ./crontab /etc/crontab
 COPY ./start.sh /usr/local/bin/
 RUN chmod 0644 /etc/crontab \
 	&& chmod 755 /usr/local/bin/start.sh \
+	&& dos2unix /usr/local/bin/start.sh \
 	&& crontab /etc/crontab
 
 # Install PECL extensions (Redis)
@@ -51,5 +55,3 @@ WORKDIR /data
 
 # Write Permission
 RUN usermod -u 8888 www-data
-
-ENTRYPOINT ["/bin/bash","-c","start.sh"]

@@ -12,8 +12,11 @@ services:
       - ./php/php.ini:/usr/local/etc/php/php.ini:ro # 当前php配置文件；可以拷贝修改php-dev.ini为想要的配置
       - ./php/php-fpm.conf:/usr/local/etc/php-fpm.conf:ro
       - ../logs/php-fpm:/var/log/php-fpm:rw
+      - ./php/laravel-worker.conf:/etc/supervisor/conf.d/laravel-worker.conf:ro
+      - ./php/cronjob-worker.conf:/etc/supervisor/conf.d/cronjob-worker.conf:ro
     restart: always
-    command: php-fpm 
+    #entrypoint: /usr/local/bin/start.sh
+    command: /usr/local/bin/start.sh
 
   nginx:
     build: ./nginx
