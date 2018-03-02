@@ -34,12 +34,9 @@ RUN apt-get update && apt-get install -y \
 COPY ./pkg/redis.tgz /home/redis.tgz
 
 # Copy crontab to container
-# COPY ./crontab /etc/crontab
-# COPY ./start.sh /usr/local/bin/
-# RUN chmod 0644 /etc/crontab \
-#	&& chmod 755 /usr/local/bin/start.sh \
-#	&& dos2unix /usr/local/bin/start.sh \
-#	&& crontab /etc/crontab
+COPY ./start.sh /usr/local/bin/
+RUN chmod 755 /usr/local/bin/start.sh \
+	&& dos2unix /usr/local/bin/start.sh
 
 # Install PECL extensions (Redis)
 RUN pecl install /home/redis.tgz && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini
