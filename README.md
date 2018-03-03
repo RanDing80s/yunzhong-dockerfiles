@@ -69,7 +69,7 @@ windows宿主机需在计划任务中导入files/php/win_cronjob.xml
 
 开发者须知
 ======================
-到app目录里，clone商城项目
+到app目录里，clone商城项目（因商城模型为前后端分离，商城项目不带前端）
 
 docker已经安装composer包管理工具，可以运行该容器进行Composer操作。
 
