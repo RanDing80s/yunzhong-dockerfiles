@@ -35,7 +35,7 @@ Redis 3.2<br>
 >>>windows系统的宿主机：需设置everyone用户读写权限到整个项目
 
 
- >docker-composer.yml里面定义了数据库的root密码，与建立数据库和普通用户，请自行修改后再进行启动
+ >>`docker-composer.yml里面定义了数据库的root密码，与建立数据库和普通用户，请自行修改后再进行启动`
 
 3.下载需要的php-module
 
@@ -44,42 +44,42 @@ Redis 3.2<br>
 
 >>linux：``` bash wget https://pecl.php.net/get/redis-3.1.6.tgz -O php/pkg/redis.tgz```
 
-Windows：下载：用上面网址下载redis并放发到php/pkg，重命名为redis.tgz
+>>Windows：下载：用上面网址下载redis并放发到php/pkg，重命名为redis.tgz
 
 4.docker-compose构建项目
-进入files目录
-docker-compose up
+>>进入files目录
+>>``` bash docker-compose up```
 
-如果没问题，下次启动时可以以守护模式启用，所有容器将后台运行：
+>>如果没问题，下次启动时可以以守护模式启用，所有容器将后台运行：
 
-docker-compose up -d
+>>``` bash docker-compose up -d```
 
-一切准备就绪后，进入app目录/data/config.php，修改相应链接数据库资料。host修改为：mysql-db,其他根据docker-compose.yml文件中内容设置。
+>>一切准备就绪后，进入app目录/data/config.php，修改相应链接数据库资料。host修改为：mysql-db,其他根据docker-compose.yml文件中内容设置。
 
-导入项目中的we7.sql到数据库中。
+>>导入项目中的we7.sql到数据库中。
 
-运行：http://domain/p.php修改管理员密码。用户名为admin
+>>运行：http://domain/p.php修改管理员密码。用户名为admin
 
-windows宿主机需在计划任务中导入files/php/win_cronjob.xml
+>>windows宿主机需在计划任务中导入files/php/win_cronjob.xml
 
-最后更新商城系统后，再更新微擎。才能开始使用。
+>>最后更新商城系统后，再更新微擎。才能开始使用。
 
 开发者须知
 ======================
 到app目录里，clone商城项目（因商城模型为前后端分离，商城项目不带前端）
 
 docker已经安装composer包管理工具，可以运行该容器进行Composer操作。
-
+``` bash
 docker-compose run --rm -w /data/www php-fpm composer update --optimize-autoloader
 
 docker-compose run --rm -w /data/www php-fpm composer dump-autoload --optimize
-
+```
 迁移数据库结构：
-
+``` bash
 docker-compose run --rm php-fpm php /data/www/addons/yun_shop/artisan migrate -y
 
 docker-compose run --rm php-fpm php /data/www/addons/yun_shop/artisan db:seed -y
-
+```
 修改项目.env为：
 
 APP_ENV=dev
