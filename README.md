@@ -39,10 +39,10 @@ Redis 3.2<br>
 
 3.下载需要的php-module
 
-先下载好要使用的php-module，如果编译出错要多次构建容器就可以省掉下载时间。
+>>先下载好要使用的php-module，如果编译出错要多次构建容器就可以省掉下载时间。
 
 
-linux：wget https://pecl.php.net/get/redis-3.1.6.tgz -O php/pkg/redis.tgz
+>>linux：``` bash wget https://pecl.php.net/get/redis-3.1.6.tgz -O php/pkg/redis.tgz```
 
 Windows：下载：用上面网址下载redis并放发到php/pkg，重命名为redis.tgz
 
