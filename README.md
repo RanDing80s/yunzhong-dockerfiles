@@ -29,19 +29,23 @@ docker-compose，文档：https://docs.docker.com/compose/install/
 	宿主机要求：
 	linux系统的宿主机：为解决权限问题，需在宿主机创建用户:(不创建需赋予app目录、logs目录777权限)
 
-	创建uid为8888的www-data用户，并赋予app目录和logs/nginx、logs/php-fpm目录www-data用户可写
+		- 创建uid为8888的www-data用户，并赋予app目录和logs/nginx、logs/php-fpm目录www-data用户可写
 
-	创建uid为999的mysql用户，并赋予logs/mysql目录权限
+		- 创建uid为999的mysql用户，并赋予logs/mysql目录权限
 
-	windows系统需设置everyone用户读写权限到整个项目
+	windows系统的宿主机：需设置everyone用户读写权限到整个项目
 
-    --docker-composer.yml里面定义了数据库的root密码，与建立数据库和普通用户，请自行修改后再进行启动
+
+    docker-composer.yml里面定义了数据库的root密码，与建立数据库和普通用户，请自行修改后再进行启动
 
 3.下载需要的php-module
 
 先下载好要使用的php-module，如果编译出错要多次构建容器就可以省掉下载时间。
 
-wget https://pecl.php.net/get/redis-3.1.6.tgz -O php/pkg/redis.tgz
+
+linux：wget https://pecl.php.net/get/redis-3.1.6.tgz -O php/pkg/redis.tgz
+
+Windows：下载：用上面网址下载redis并放发到php/pkg，重命名为redis.tgz
 
 4.docker-compose构建项目
 进入files目录
@@ -49,8 +53,11 @@ docker-compose up
 
 如果没问题，下次启动时可以以守护模式启用，所有容器将后台运行：
 
-docker-compose up -d
+docker-compose up -d （先别）
 
+一切准备就绪后，进入app目录/data/config.php，修改相应链接数据库资料。host修改为：mysql-db,其他根据docker-compose.yml文件中内容设置。
+
+windows宿主机需在计划任务中导入files/php/win_cronjob.xml
 
 开发者操作：
 到app目录里，clone商城项目
@@ -68,3 +75,6 @@ APP_ENV=dev
 APP_KEY=base64:gkli8hs6Q9DbSR/cQw5DNaRBF0jtvf1iGaXc6ja0ZGA=
 
 APP_DEBUG=true
+
+
+
