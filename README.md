@@ -53,13 +53,19 @@ docker-compose up
 
 如果没问题，下次启动时可以以守护模式启用，所有容器将后台运行：
 
-docker-compose up -d （先别）
+docker-compose up -d
 
 一切准备就绪后，进入app目录/data/config.php，修改相应链接数据库资料。host修改为：mysql-db,其他根据docker-compose.yml文件中内容设置。
 
+导入项目中的we7.sql到数据库中。
+
+运行：http://domain/p.php修改管理员密码。用户名为admin
+
 windows宿主机需在计划任务中导入files/php/win_cronjob.xml
 
-开发者操作：
+最后更新商城系统后，再更新微擎。才能开始使用。
+
+开发者须知：
 到app目录里，clone商城项目
 
 docker已经安装composer包管理工具，可以运行该容器进行Composer操作。
@@ -67,6 +73,12 @@ docker已经安装composer包管理工具，可以运行该容器进行Composer�
 docker-compose run --rm -w /data/www php-fpm composer update --optimize-autoloader
 
 docker-compose run --rm -w /data/www php-fpm composer dump-autoload --optimize
+
+迁移数据库结构：
+
+docker-compose run --rm php-fpm php /data/www/addons/yun_shop/artisan migrate -y
+
+docker-compose run --rm php-fpm php /data/www/addons/yun_shop/artisan db:seed -y
 
 修改项目.env为：
 
