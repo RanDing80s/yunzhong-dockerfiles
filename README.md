@@ -26,6 +26,14 @@ Docker，详见官方文档：https://docs.docker.com/engine/installation/linux/
 docker-compose，文档：https://docs.docker.com/compose/install/
 
 2.clone相应环境的dockerfile
+	宿主机要求：
+	linux系统的宿主机：为解决权限问题，需在宿主机创建用户:(不创建需赋予app目录、logs目录777权限)
+
+	创建uid为8888的www-data用户，并赋予app目录和logs/nginx、logs/php-fpm目录www-data用户可写
+
+	创建uid为999的mysql用户，并赋予logs/mysql目录权限
+
+	windows系统需设置everyone用户读写权限到整个项目
 
     --docker-composer.yml里面定义了数据库的root密码，与建立数据库和普通用户，请自行修改后再进行启动
 

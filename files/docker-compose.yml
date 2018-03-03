@@ -15,6 +15,7 @@ services:
       - ./php/laravel-worker.conf:/etc/supervisor/conf.d/laravel-worker.conf:ro
       - ./php/cronjob-worker.conf:/etc/supervisor/conf.d/cronjob-worker.conf:ro
       - ./php/laravel_crontab:/etc/cron.d/laravel_crontab:ro
+      - ../logs/supervisor:/var/log/supervisor:rw
 
     restart: always
     #entrypoint: /usr/local/bin/start.sh
