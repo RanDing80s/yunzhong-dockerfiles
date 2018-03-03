@@ -35,7 +35,7 @@ Redis 3.2<br>
 >>>windows系统的宿主机：需设置everyone用户读写权限到整个项目
 
 
-    docker-composer.yml里面定义了数据库的root密码，与建立数据库和普通用户，请自行修改后再进行启动
+ >docker-composer.yml里面定义了数据库的root密码，与建立数据库和普通用户，请自行修改后再进行启动
 
 3.下载需要的php-module
 
