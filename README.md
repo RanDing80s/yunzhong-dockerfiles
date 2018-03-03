@@ -2,21 +2,18 @@
 =================
 相关软件版本：
 
-PHP 5.6
-MySQL 5.7
-Nginx 1.12
-Redis 3.2
+PHP 5.6<br>
+MySQL 5.7<br>
+Nginx 1.12<br>
+Redis 3.2<br>
 
 目录架构：
 -----------------
 
-1.app:存放application
-
-2.data：存放mysql、redis、backup数据
-
-3.files:存放各个服务的dockerfiles和docker-compose.yml
-
-4.logs:存放各个服务的日志
+1.app:存放application<br>
+2.data：存放mysql、redis、backup数据<br>
+3.files:存放各个服务的dockerfiles和docker-compose.yml<br>
+4.logs:存放各个服务的日志<br>
 
 使用说明
 -----------------
