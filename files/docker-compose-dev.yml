@@ -63,7 +63,7 @@ services:
       volumes:
         - ../data/redis:/data
       restart: always
- nodejs:
+  nodejs:
       build: ./nodejs
       ports:
         - "8000:8000"
