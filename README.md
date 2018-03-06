@@ -85,8 +85,6 @@ APP_DEBUG=true
 
 docker已经安装composer包管理工具，可以运行该容器进行Composer操作。
 ```
-docker-compose run --rm -w /data/www php-fpm composer --dev
-
 docker-compose run --rm -w /data/www php-fpm composer update --optimize-autoloader
 
 docker-compose run --rm -w /data/www php-fpm composer dump-autoload --optimize
