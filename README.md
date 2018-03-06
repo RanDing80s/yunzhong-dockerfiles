@@ -53,7 +53,7 @@ Redis 3.2<br>
 >>如果没问题，下次启动时可以以守护模式启用，所有容器将后台运行：
 
 >>```docker-compose up -d```(先别执行)<br>
-下载微擎与商城包：https://downloads.yunzshop.com/wq.tgz 放到app目录里面<br>
+下载微擎与商城包：https://downloads.yunzshop.com/wq.tgz 解压并放到app目录里面<br>
 现在可以去运行docker-compose up -d<br>
 
 
