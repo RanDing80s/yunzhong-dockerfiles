@@ -24,7 +24,7 @@ Redis 3.2<br>
 
 >>docker-compose，文档：https://docs.docker.com/compose/install/
 
-2.clone相应环境的dockerfile
+2.clone相应环境的dockerfile（windows的必须将项目放到d盘，不可改名！注意）
 >>宿主机要求：
 >>>linux系统的宿主机：为解决权限问题，需在宿主机创建用户:(不创建需赋予app目录、logs目录777权限)
 
@@ -52,11 +52,14 @@ Redis 3.2<br>
 
 >>如果没问题，下次启动时可以以守护模式启用，所有容器将后台运行：
 
->>```docker-compose up -d```
+>>```docker-compose up -d```(先别执行)<br>
+下载微擎与商城包：https://downloads.yunzshop.com/wq.tgz<br>
 
->>一切准备就绪后，进入app目录/data/config.php，修改相应链接数据库资料。host修改为：mysql-db,其他根据docker-compose.yml文件中内容设置。
+>>一切准备就绪后，进入app目录/data/config.php，修改相应链接数据库资料。host修改为：mysql-db,其他根据docker-compose.yml文件中内容设置,<br>
+修改app/dbm/libraries/config.default.php，修改为$cfg['Servers'][$i]['host'] = 'mysql-db'<br>
 
->>导入项目中的we7.sql到数据库中。
+
+>>导入项目中的we7.sql到数据库中.(使用http://localhost/dbm或mysql的client均可）
 
 >>运行：http://domain/p.php修改管理员密码。用户名为admin
 
@@ -66,10 +69,20 @@ Redis 3.2<br>
 
 开发者须知
 ======================
-到app目录里，clone商城项目（因商城模型为前后端分离，商城项目不带前端）
+到app/addons/yun_shop/目录里，删除所有文件。clone商城项目（因商城模型为前后端分离，商城项目不带前端),
+
+修改项目.env为：（没有则新建.env文件）
+
+APP_ENV=dev
+
+APP_KEY=base64:gkli8hs6Q9DbSR/cQw5DNaRBF0jtvf1iGaXc6ja0ZGA=
+
+APP_DEBUG=true
 
 docker已经安装composer包管理工具，可以运行该容器进行Composer操作。
 ```
+docker-compose run --rm -w /data/www php-fpm composer --dev
+
 docker-compose run --rm -w /data/www php-fpm composer update --optimize-autoloader
 
 docker-compose run --rm -w /data/www php-fpm composer dump-autoload --optimize
@@ -80,13 +93,7 @@ docker-compose run --rm php-fpm php /data/www/addons/yun_shop/artisan migrate -y
 
 docker-compose run --rm php-fpm php /data/www/addons/yun_shop/artisan db:seed -y
 ```
-修改项目.env为：
 
-APP_ENV=dev
-
-APP_KEY=base64:gkli8hs6Q9DbSR/cQw5DNaRBF0jtvf1iGaXc6ja0ZGA=
-
-APP_DEBUG=true
 
 
 
