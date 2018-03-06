@@ -61,9 +61,9 @@ Redis 3.2<br>
 修改app/dbm/libraries/config.default.php，修改为$cfg['Servers'][$i]['host'] = 'mysql-db'<br>
 
 
->>导入项目中的we7.sql到数据库中.(使用http://localhost/dbm或mysql的client均可）<br>
+>>导入项目中的we7.sql到数据库中.(使用http://localhost/dbm 或mysql的client均可）<br>
 
->>运行：http://domain/p.php修改管理员密码。用户名为admin<br>
+>>运行：http://domain/p.php 修改管理员密码。用户名为admin<br>
 
 >>windows宿主机需在计划任务中导入files/php/win_cronjob.xml<br>
 
