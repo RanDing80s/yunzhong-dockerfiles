@@ -91,9 +91,9 @@ docker-compose run --rm -w /data/www/addons/yun_shop php-fpm composer dump-autol
 ```
 迁移数据库结构：
 ```
-docker-compose run --rm php-fpm php /data/www/addons/yun_shop/artisan migrate -y
+docker-compose run --rm php-fpm php /data/www/addons/yun_shop/artisan migrate
 
-docker-compose run --rm php-fpm php /data/www/addons/yun_shop/artisan db:seed -y
+docker-compose run --rm php-fpm php /data/www/addons/yun_shop/artisan db:seed
 ```
 
 
