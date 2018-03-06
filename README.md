@@ -53,17 +53,19 @@ Redis 3.2<br>
 >>如果没问题，下次启动时可以以守护模式启用，所有容器将后台运行：
 
 >>```docker-compose up -d```(先别执行)<br>
-下载微擎与商城包：https://downloads.yunzshop.com/wq.tgz<br>
+下载微擎与商城包：https://downloads.yunzshop.com/wq.tgz 放到app目录里面<br>
+现在可以去运行docker-compose up -d<br>
+
 
 >>一切准备就绪后，进入app目录/data/config.php，修改相应链接数据库资料。host修改为：mysql-db,其他根据docker-compose.yml文件中内容设置,<br>
 修改app/dbm/libraries/config.default.php，修改为$cfg['Servers'][$i]['host'] = 'mysql-db'<br>
 
 
->>导入项目中的we7.sql到数据库中.(使用http://localhost/dbm或mysql的client均可）
+>>导入项目中的we7.sql到数据库中.(使用http://localhost/dbm或mysql的client均可）<br>
 
->>运行：http://domain/p.php修改管理员密码。用户名为admin
+>>运行：http://domain/p.php修改管理员密码。用户名为admin<br>
 
->>windows宿主机需在计划任务中导入files/php/win_cronjob.xml
+>>windows宿主机需在计划任务中导入files/php/win_cronjob.xml<br>
 
 >>最后更新商城系统后，再更新微擎。才能开始使用。
 
